@@ -225,10 +225,10 @@ let Cube = {
         Cube.positions.IJ     = GR[5]+'-'+OR[3];
         Cube.positions.KL     = OR[5]+'-'+BL[3];
         Cube.positions.MN     = BL[5]+'-'+RE[3];
-        Cube.positions.OP     = RE[7]+'-'+BL[3];
-        Cube.positions.QR     = GR[7]+'-'+BL[1];
-        Cube.positions.ST     = OR[7]+'-'+BL[5];
-        Cube.positions.UV     = BL[7]+'-'+BL[7];
+        Cube.positions.OP     = RE[7]+'-'+WH[3];
+        Cube.positions.QR     = GR[7]+'-'+WH[1];
+        Cube.positions.ST     = OR[7]+'-'+WH[5];
+        Cube.positions.UV     = BL[7]+'-'+WH[7];
 
     },
     move: {
@@ -359,6 +359,6 @@ let Cube = {
 
 
 // codigo de prueba:
-Cube.move.U2();
+Cube.move.U();
 Cube.setPositions();
 console.log(Cube.positions);
