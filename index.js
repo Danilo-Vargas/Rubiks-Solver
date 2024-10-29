@@ -239,7 +239,7 @@ let Cube = {
             let buffer_corner;
             let buffer_edge;
 
-            // Movimiento de esquinas en la cara
+            // Movimiento de esquinas
             buffer_corner = YE[0];
             YE[0] = YE[6];
             YE[6] = YE[8];
@@ -258,7 +258,7 @@ let Cube = {
             BL[2] = RE[2];
             RE[2] = buffer_corner;
 
-            // Movimiento de aristas en la cara
+            // Movimiento de aristas
             buffer_edge  = YE[1];
             YE[1] = YE[3];
             YE[3] = YE[7];
@@ -273,6 +273,43 @@ let Cube = {
 
         },
         L: ()=>{
+
+            let { RE, YE, GR, WH, BL } = Cube.state;
+
+            let buffer_corner;
+            let buffer_edge;
+
+            // Movimiento de esquinas
+            buffer_corner = RE[0];
+            RE[0] = RE[6];
+            RE[6] = RE[8];
+            RE[8] = RE[2];
+            RE[2] = buffer_corner;
+
+            buffer_corner = YE[0];
+            YE[0] = BL[8];
+            BL[8] = WH[0];
+            WH[0] = GR[0];
+            GR[0] = buffer_corner;
+
+            buffer_corner = YE[6];
+            YE[6] = BL[2];
+            BL[2] = WH[6];
+            WH[6] = GR[6];
+            GR[6] = buffer_corner;
+
+            // Movimiento de aristas
+            buffer_edge  = RE[1];
+            RE[1] = RE[3];
+            RE[3] = RE[7];
+            RE[7] = RE[5];
+            RE[5] = buffer_edge;
+
+            buffer_edge  = YE[3];
+            YE[3] = BL[5];
+            BL[5] = WH[3];
+            WH[3] = GR[3];
+            GR[3] = buffer_edge;
 
         },
         D: ()=>{
@@ -359,6 +396,6 @@ let Cube = {
 
 
 // codigo de prueba:
-Cube.move.U();
+Cube.move.L();
 Cube.setPositions();
 console.log(Cube.positions);
