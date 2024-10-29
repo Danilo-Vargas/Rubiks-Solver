@@ -21,7 +21,7 @@
      // Fin del proyecto: --/--/----
     // Repositorio de GitHub: https://github.com/Danilo-Vargas/Rubiks-Solver
    
-        // Visíta mi sitio web https://danilovargas.tech para conocer más acerca de mí y los proyectos en los que he trabajado
+    // Visíta mi sitio web https://danilovargas.tech para conocer más acerca de mí y los proyectos en los que he trabajado
 
                   ////////////////////////////////////////////////////////////////////////////////////////////
                  
@@ -46,10 +46,10 @@
             // y pasar como parámetro un objeto como se indica a continuación:
            //
           //                    Cubo.setEstado({                De esta manera con todas las
-         //                         AM: [                       caras, siguiendo el orden
-        //                              'AM0','AM1','AM2',      que se encuentra en el diagrama
-       //                               'AM3','AM4','AM5',      de las posiciones de los
-      //                                'AM6','AM7','AM8'       colores.
+         //                         YE: [                       caras, siguiendo el orden
+        //                              'YE0','YE1','YE2',      que se encuentra en el diagrama
+       //                               'YE3','YE4','YE5',      de las posiciones de los
+      //                                'YE6','YE7','YE8'       colores.
      //                             ],
     //                          });
 
@@ -60,12 +60,12 @@
 
     // Para los colores usaré las siguientes claves:
 
-    //     Amarillo - AM
-    //     Blanco   - BL
-    //     Verde    - VE
-    //     Azul     - AZ
-    //     Rojo     - RO
-    //     Naranja  - NA
+    //     Amarillo - YE
+    //     Blanco   - WH
+    //     Verde    - GR
+    //     Azul     - BL
+    //     Rojo     - RE
+    //     Naranja  - OR
 
      // Y cada posición del cubo tendrá un nombre específico, este nombre serán letras del abecedario según
     // el orden que me aprendí para armarlo con el metodo que se usa para armarlo a ciegas
@@ -82,15 +82,15 @@
 
     //                                  ╔══════════╗
     //                                  ║          ║
-    //                                  ║    AM    ║
+    //                                  ║    YE    ║
     //                                  ║          ║
     //            ╔══════════╦══════════╬══════════╬══════════╗
     //            ║          ║          ║          ║          ║
-    //            ║    AZ    ║    RO    ║    VE    ║    NA    ║
+    //            ║    BL    ║    RE    ║    GR    ║    OR    ║
     //            ║          ║          ║          ║          ║
     //            ╚══════════╩══════════╬══════════╬══════════╝
     //                                  ║          ║
-    //                                  ║    BL    ║
+    //                                  ║    WH    ║
     //                                  ║          ║
     //                                  ╚══════════╝
 
@@ -99,19 +99,19 @@
     //                                                ╔═════╦═════╦═════╗
     //             ▓▓▓ - BUFFER principal             ║ ▓▓▓ |  E  |  b  ║
     //                                                ╠─────┼─────┼─────╣
-    //             ▒▒▒ - Complemento de BUFFER        ║  A  | AMA | ▓▓▓ ║
+    //             ▒▒▒ - Complemento de BUFFER        ║  A  | YEL | ▓▓▓ ║
     //                                                ╠─────┼─────┼─────╣
     //                                                ║  c  |  C  |  a  ║
     //            ╔═════╦═════╦═════╦═════╦═════╦═════╬═════╬═════╬═════╬═════╦═════╦═════╗
     //            ║  j  |  F  | ▒▒▒ ║ ▒▒▒ |  B  |  o  ║  h  |  D  |  i  ║  p  | ▒▒▒ |  q  ║
     //            ╠─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╣
-    //            ║  L  | AZU |  M  ║  N  | ROJ |  G  ║  H  | VER |  I  ║  J  | NAR |  K  ║
+    //            ║  L  | BLU |  M  ║  N  | RED |  G  ║  H  | GRE |  I  ║  J  | ORA |  K  ║
     //            ╠─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╣
     //            ║  m  |  U  |  n  ║  r  |  O  |  s  ║  k  |  Q  |  l  ║  t  |  S  |  u  ║
     //            ╚═════╩═════╩═════╩═════╩═════╩═════╬═════╬═════╬═════╬═════╩═════╩═════╝
     //                                                ║  d  |  R  |  e  ║
     //              El BUFFER es la pieza que         ╠─────┼─────┼─────╣
-    //              funcionará como sensor para       ║  P  | BLA |  T  ║
+    //              funcionará como sensor para       ║  P  | WHI |  T  ║
     //              saber que pieza se debe           ╠─────┼─────┼─────╣
     //              acomodar                          ║  g  |  V  |  f  ║
     //                                                ╚═════╩═════╩═════╝
@@ -120,7 +120,7 @@
 
     //
     //    ╔═════╦═════╦═════╗
-    //    ║  0  |  1  |  2  ║    AM: [              Estaos indicando el indice de las posiciones
+    //    ║  0  |  1  |  2  ║    YE: [              Estaos indicando el indice de las posiciones
     //    ╠─────┼─────┼─────╣        0, 1, 2,       en la cara amarilla, sin embargo, se debe
     //    ║  3  |  4  |  5  ║        3, 4, 5,       indicar el color que se encuentra en esa 
     //    ╠─────┼─────┼─────╣        6, 7, 8        posición de acuerdo a las claves establecidas
@@ -131,59 +131,59 @@
     // Diagrama de posiciones de los colores:
 
     //                                                ╔═════╦═════╦═════╗
-    //                                                ║ AM0 | AM1 | AM2 ║
+    //                                                ║ YE0 | YE1 | YE2 ║
     //                                                ╠─────┼─────┼─────╣
-    //                                                ║ AM3 | AM4 | AM5 ║
+    //                                                ║ YE3 | YE4 | YE5 ║
     //                                                ╠─────┼─────┼─────╣
-    //                                                ║ AM6 | AM7 | AM8 ║
+    //                                                ║ YE6 | YE7 | YE8 ║
     //            ╔═════╦═════╦═════╦═════╦═════╦═════╬═════╬═════╬═════╬═════╦═════╦═════╗
-    //            ║ AZ0 | AZ1 | AZ2 ║ RO0 | RO1 | RO2 ║ VE0 | VE1 | VE2 ║ NA0 | NA1 | NA2 ║
+    //            ║ BL0 | BL1 | BL2 ║ RE0 | RE1 | RE2 ║ GR0 | GR1 | GR2 ║ OR0 | OR1 | OR2 ║
     //            ╠─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╣
-    //            ║ AZ3 | AZ4 | AZ5 ║ RO3 | RO4 | RO5 ║ VE3 | VE4 | VE5 ║ NA3 | NA4 | NA5 ║
+    //            ║ BL3 | BL4 | BL5 ║ RE3 | RE4 | RE5 ║ GR3 | GR4 | GR5 ║ OR3 | OR4 | OR5 ║
     //            ╠─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╬─────┼─────┼─────╣
-    //            ║ AZ6 | AZ7 | AZ8 ║ RO6 | RO7 | RO8 ║ VE6 | VE7 | VE8 ║ NA6 | NA7 | NA8 ║
+    //            ║ BL6 | BL7 | BL8 ║ RE6 | RE7 | RE8 ║ GR6 | GR7 | GR8 ║ OR6 | OR7 | OR8 ║
     //            ╚═════╩═════╩═════╩═════╩═════╩═════╬═════╬═════╬═════╬═════╩═════╩═════╝
-    //                                                ║ BL0 | BL1 | BL2 ║
+    //                                                ║ WH0 | WH1 | WH2 ║
     //             En el diagrama se observan dos     ╠─────┼─────┼─────╣
-    //             letras y un número, de la          ║ BL3 | BL4 | BL5 ║
+    //             letras y un número, de la          ║ WH3 | WH4 | WH5 ║
     //             siguiente manera: XXN, donde:      ╠─────┼─────┼─────╣
-    //             XX = color de la cara              ║ BL6 | BL7 | BL8 ║
+    //             XX = color de la cara              ║ WH6 | WH7 | WH8 ║
     //             N = índice dentro de la matriz     ╚═════╩═════╩═════╝
 
-let Cubo = {
-    estado: {
-        AM: [
-            'AM0','AM1','AM2',
-            'AM3','AM4','AM5',
-            'AM6','AM7','AM8'
+let Cube = {
+    state: {
+        YE: [
+            'YE0','YE1','YE2',
+            'YE3','YE4','YE5',
+            'YE6','YE7','YE8'
+        ],
+        WH: [
+            'WH0','WH1','WH2',
+            'WH3','WH4','WH5',
+            'WH6','WH7','WH8'
+        ],
+        GR: [
+            'GR0','GR1','GR2',
+            'GR3','GR4','GR5',
+            'GR6','GR7','GR8'
         ],
         BL: [
             'BL0','BL1','BL2',
             'BL3','BL4','BL5',
             'BL6','BL7','BL8'
         ],
-        VE: [
-            'VE0','VE1','VE2',
-            'VE3','VE4','VE5',
-            'VE6','VE7','VE8'
+        RE: [
+            'RE0','RE1','RE2',
+            'RE3','RE4','RE5',
+            'RE6','RE7','RE8'
         ],
-        AZ: [
-            'AZ0','AZ1','AZ2',
-            'AZ3','AZ4','AZ5',
-            'AZ6','AZ7','AZ8'
-        ],
-        RO: [
-            'RO0','RO1','RO2',
-            'RO3','RO4','RO5',
-            'RO6','RO7','RO8'
-        ],
-        NA: [
-            'NA0','NA1','NA2',
-            'NA3','NA4','NA5',
-            'NA6','NA7','NA8'
+        OR: [
+            'OR0','OR1','OR2',
+            'OR3','OR4','OR5',
+            'OR6','OR7','OR8'
         ]
     },
-    posiciones:{
+    positions:{
         buffer: '', // Esquinas
         aip: '',
         bqj: '',
@@ -205,71 +205,71 @@ let Cubo = {
         ST: '',
         UV: ''
     },
-    setPosiciones: ()=>{
+    setPositions: ()=>{
 
-        let { AM, BL, VE, AZ, RO, NA } = Cubo.estado;
+        let { YE, WH, GR, BL, RE, OR } = Cube.state;
         
-        Cubo.posiciones.buffer = AM[0]+'-'+AZ[2]+'-'+RO[0];
-        Cubo.posiciones.aip    = AM[8]+'-'+VE[2]+'-'+NA[0];
-        Cubo.posiciones.bqj    = AM[2]+'-'+NA[2]+'-'+AZ[0];
-        Cubo.posiciones.coh    = AM[6]+'-'+RO[2]+'-'+VE[0];
-        Cubo.posiciones.dsk    = BL[0]+'-'+RO[8]+'-'+VE[6];
-        Cubo.posiciones.elt    = BL[2]+'-'+VE[8]+'-'+NA[6];
-        Cubo.posiciones.fum    = BL[8]+'-'+NA[8]+'-'+AZ[6];
-        Cubo.posiciones.gnr    = BL[6]+'-'+AZ[8]+'-'+RO[6];
-        Cubo.posiciones.BUFFER = AM[5]+'-'+NA[1];
-        Cubo.posiciones.AB     = AM[3]+'-'+RO[1];
-        Cubo.posiciones.CD     = AM[7]+'-'+VE[1];
-        Cubo.posiciones.EF     = AM[1]+'-'+AZ[1];
-        Cubo.posiciones.GH     = RO[5]+'-'+VE[3];
-        Cubo.posiciones.IJ     = VE[5]+'-'+NA[3];
-        Cubo.posiciones.KL     = NA[5]+'-'+AZ[3];
-        Cubo.posiciones.MN     = AZ[5]+'-'+RO[3];
-        Cubo.posiciones.OP     = RO[7]+'-'+BL[3];
-        Cubo.posiciones.QR     = VE[7]+'-'+BL[1];
-        Cubo.posiciones.ST     = NA[7]+'-'+BL[5];
-        Cubo.posiciones.UV     = AZ[7]+'-'+BL[7];
+        Cube.positions.buffer = YE[0]+'-'+BL[2]+'-'+RE[0];
+        Cube.positions.aip    = YE[8]+'-'+GR[2]+'-'+OR[0];
+        Cube.positions.bqj    = YE[2]+'-'+OR[2]+'-'+BL[0];
+        Cube.positions.coh    = YE[6]+'-'+RE[2]+'-'+GR[0];
+        Cube.positions.dsk    = WH[0]+'-'+RE[8]+'-'+GR[6];
+        Cube.positions.elt    = WH[2]+'-'+GR[8]+'-'+OR[6];
+        Cube.positions.fum    = WH[8]+'-'+OR[8]+'-'+BL[6];
+        Cube.positions.gnr    = WH[6]+'-'+BL[8]+'-'+RE[6];
+        Cube.positions.BUFFER = YE[5]+'-'+OR[1];
+        Cube.positions.AB     = YE[3]+'-'+RE[1];
+        Cube.positions.CD     = YE[7]+'-'+GR[1];
+        Cube.positions.EF     = YE[1]+'-'+BL[1];
+        Cube.positions.GH     = RE[5]+'-'+GR[3];
+        Cube.positions.IJ     = GR[5]+'-'+OR[3];
+        Cube.positions.KL     = OR[5]+'-'+BL[3];
+        Cube.positions.MN     = BL[5]+'-'+RE[3];
+        Cube.positions.OP     = RE[7]+'-'+BL[3];
+        Cube.positions.QR     = GR[7]+'-'+BL[1];
+        Cube.positions.ST     = OR[7]+'-'+BL[5];
+        Cube.positions.UV     = BL[7]+'-'+BL[7];
 
     },
     move: {
         U: ()=>{
 
-            let { AM, VE, RO, AZ, NA } = Cubo.estado;
+            let { YE, GR, RE, BL, OR } = Cube.state;
 
-            let buffer_esquina;
-            let buffer_arista;
+            let buffer_corner;
+            let buffer_edge;
 
             // Movimiento de esquinas en la cara
-            buffer_esquina = AM[0];
-            AM[0] = AM[6];
-            AM[6] = AM[8];
-            AM[8] = AM[2];
-            AM[2] = buffer_esquina;
+            buffer_corner = YE[0];
+            YE[0] = YE[6];
+            YE[6] = YE[8];
+            YE[8] = YE[2];
+            YE[2] = buffer_corner;
 
-            buffer_esquina = VE[0];
-            VE[0] = NA[0];
-            NA[0] = AZ[0];
-            AZ[0] = RO[0];
-            RO[0] = buffer_esquina;
+            buffer_corner = GR[0];
+            GR[0] = OR[0];
+            OR[0] = BL[0];
+            BL[0] = RE[0];
+            RE[0] = buffer_corner;
 
-            buffer_esquina = VE[2];
-            VE[2] = NA[2];
-            NA[2] = AZ[2];
-            AZ[2] = RO[2];
-            RO[2] = buffer_esquina;
+            buffer_corner = GR[2];
+            GR[2] = OR[2];
+            OR[2] = BL[2];
+            BL[2] = RE[2];
+            RE[2] = buffer_corner;
 
             // Movimiento de aristas en la cara
-            buffer_arista  = AM[1];
-            AM[1] = AM[3];
-            AM[3] = AM[7];
-            AM[7] = AM[5];
-            AM[5] = buffer_arista;
+            buffer_edge  = YE[1];
+            YE[1] = YE[3];
+            YE[3] = YE[7];
+            YE[7] = YE[5];
+            YE[5] = buffer_edge;
 
-            buffer_arista  = VE[1];
-            VE[1] = NA[1];
-            NA[1] = AZ[1];
-            AZ[1] = RO[1];
-            RO[1] = buffer_arista;
+            buffer_edge  = GR[1];
+            GR[1] = OR[1];
+            OR[1] = BL[1];
+            BL[1] = RE[1];
+            RE[1] = buffer_edge;
 
         },
         L: ()=>{
@@ -297,9 +297,9 @@ let Cubo = {
 
         },
         Up: ()=>{
-            Cubo.move.U();
-            Cubo.move.U();
-            Cubo.move.U();
+            Cube.move.U();
+            Cube.move.U();
+            Cube.move.U();
         },
         Lp: ()=>{
 
@@ -326,8 +326,8 @@ let Cubo = {
 
         },
         U2: ()=>{
-            Cubo.move.U();
-            Cubo.move.U();
+            Cube.move.U();
+            Cube.move.U();
         },
         L2: ()=>{
 
@@ -359,6 +359,6 @@ let Cubo = {
 
 
 // codigo de prueba:
-Cubo.move.U2();
-Cubo.setPosiciones();
-console.log(Cubo.posiciones);
+Cube.move.U2();
+Cube.setPositions();
+console.log(Cube.positions);
