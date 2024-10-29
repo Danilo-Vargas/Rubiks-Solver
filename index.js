@@ -339,7 +339,9 @@ let Cube = {
             Cube.move.U();
         },
         Lp: ()=>{
-
+            Cube.move.L();
+            Cube.move.L();
+            Cube.move.L();
         },
         Dp: ()=>{
 
@@ -367,7 +369,8 @@ let Cube = {
             Cube.move.U();
         },
         L2: ()=>{
-
+            Cube.move.L();
+            Cube.move.L();
         },
         D2: ()=>{
 
