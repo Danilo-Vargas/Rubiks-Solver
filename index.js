@@ -184,51 +184,51 @@ let Cube = {
         ]
     },
     positions:{
-        buffer: '', // Esquinas
-        aip: '',
-        bqj: '',
-        coh: '',
-        dsk: '',
-        elt: '',
-        fum: '',
-        gnr: '',
-        BUFFER: '', // Aristas
-        AB: '',
-        CD: '',
-        EF: '',
-        GH: '',
-        IJ: '',
-        KL: '',
-        MN: '',
-        OP: '',
-        QR: '',
-        ST: '',
-        UV: ''
+        buffer: [], // Esquinas
+        aip: [],
+        bqj: [],
+        coh: [],
+        dsk: [],
+        elt: [],
+        fum: [],
+        gnr: [],
+        BUFFER: [], // Aristas
+        AB: [],
+        CD: [],
+        EF: [],
+        GH: [],
+        IJ: [],
+        KL: [],
+        MN: [],
+        OP: [],
+        QR: [],
+        ST: [],
+        UV: []
     },
     setPositions: ()=>{
 
         let { YE, WH, GR, BL, RE, OR } = Cube.state;
         
-        Cube.positions.buffer = YE[0]+'-'+BL[2]+'-'+RE[0];
-        Cube.positions.aip    = YE[8]+'-'+GR[2]+'-'+OR[0];
-        Cube.positions.bqj    = YE[2]+'-'+OR[2]+'-'+BL[0];
-        Cube.positions.coh    = YE[6]+'-'+RE[2]+'-'+GR[0];
-        Cube.positions.dsk    = WH[0]+'-'+RE[8]+'-'+GR[6];
-        Cube.positions.elt    = WH[2]+'-'+GR[8]+'-'+OR[6];
-        Cube.positions.fum    = WH[8]+'-'+OR[8]+'-'+BL[6];
-        Cube.positions.gnr    = WH[6]+'-'+BL[8]+'-'+RE[6];
-        Cube.positions.BUFFER = YE[5]+'-'+OR[1];
-        Cube.positions.AB     = YE[3]+'-'+RE[1];
-        Cube.positions.CD     = YE[7]+'-'+GR[1];
-        Cube.positions.EF     = YE[1]+'-'+BL[1];
-        Cube.positions.GH     = RE[5]+'-'+GR[3];
-        Cube.positions.IJ     = GR[5]+'-'+OR[3];
-        Cube.positions.KL     = OR[5]+'-'+BL[3];
-        Cube.positions.MN     = BL[5]+'-'+RE[3];
-        Cube.positions.OP     = RE[7]+'-'+WH[3];
-        Cube.positions.QR     = GR[7]+'-'+WH[1];
-        Cube.positions.ST     = OR[7]+'-'+WH[5];
-        Cube.positions.UV     = BL[7]+'-'+WH[7];
+        Cube.positions.buffer = [YE[0],BL[2],RE[0]];
+        Cube.positions.aip    = [YE[8],GR[2],OR[0]];
+        Cube.positions.bqj    = [YE[2],OR[2],BL[0]];
+        Cube.positions.coh    = [YE[6],RE[2],GR[0]];
+        Cube.positions.dsk    = [WH[0],RE[8],GR[6]];
+        Cube.positions.elt    = [WH[2],GR[8],OR[6]];
+        Cube.positions.fum    = [WH[8],OR[8],BL[6]];
+        Cube.positions.gnr    = [WH[6],BL[8],RE[6]];
+        Cube.positions.BUFFER = [YE[5],OR[1]];
+        Cube.positions.AB     = [YE[3],RE[1]];
+        Cube.positions.CD     = [YE[7],GR[1]];
+        Cube.positions.EF     = [YE[1],BL[1]];
+        Cube.positions.GH     = [RE[5],GR[3]];
+        Cube.positions.IJ     = [GR[5],OR[3]];
+        Cube.positions.KL     = [OR[5],BL[3]];
+        Cube.positions.MN     = [BL[5],RE[3]];
+        Cube.positions.OP     = [RE[7],WH[3]];
+        Cube.positions.QR     = [GR[7],WH[1]];
+        Cube.positions.ST     = [OR[7],WH[5]];
+        Cube.positions.UV     = [BL[7],WH[7]];
 
     },
     move: {
@@ -259,13 +259,13 @@ let Cube = {
             RE[2] = buffer_corner;
 
             // Movimiento de aristas
-            buffer_edge  = YE[1];
+            buffer_edge = YE[1];
             YE[1] = YE[3];
             YE[3] = YE[7];
             YE[7] = YE[5];
             YE[5] = buffer_edge;
 
-            buffer_edge  = GR[1];
+            buffer_edge = GR[1];
             GR[1] = OR[1];
             OR[1] = BL[1];
             BL[1] = RE[1];
@@ -299,13 +299,13 @@ let Cube = {
             GR[6] = buffer_corner;
 
             // Movimiento de aristas
-            buffer_edge  = RE[1];
+            buffer_edge = RE[1];
             RE[1] = RE[3];
             RE[3] = RE[7];
             RE[7] = RE[5];
             RE[5] = buffer_edge;
 
-            buffer_edge  = YE[3];
+            buffer_edge = YE[3];
             YE[3] = BL[5];
             BL[5] = WH[3];
             WH[3] = GR[3];
@@ -314,12 +314,86 @@ let Cube = {
         },
         D: ()=>{
 
+            let { WH, GR, OR, BL, RE } = Cube.state;
+
+            let buffer_corner;
+            let buffer_edge;
+
+            // Movimiento de esquinas
+            buffer_corner = BL[0];
+            WH[0] = WH[6];
+            WH[6] = WH[8];
+            WH[8] = WH[2];
+            WH[2] = buffer_corner;
+
+            buffer_corner = GR[6];
+            GR[6] = RE[6];
+            RE[6] = BL[6];
+            BL[6] = OR[6];
+            OR[6] = buffer_corner;
+            
+            buffer_corner = GR[8];
+            GR[8] = RE[8];
+            RE[8] = BL[8];
+            BL[8] = OR[8];
+            OR[8] = buffer_corner;
+
+            // Movimiento de aristas
+            buffer_edge = WH[1];
+            WH[1] = WH[3];
+            WH[3] = WH[7];
+            WH[7] = WH[5];
+            WH[5] = buffer_edge;
+
+            buffer_edge = GR[7];
+            GR[7] = RE[7];
+            RE[7] = BL[7];
+            BL[7] = OR[7];
+            OR[7] = buffer_edge;
+
         },
         R: ()=>{
 
+            let { OR, GR, WH, BL, YE } = Cube.state;
+
+            let buffer_corner;
+            let buffer_edge;
+
+            // Movimiento de esquinas
+            buffer_corner = OR[0];
+            OR[0] = OR[6];
+            OR[6] = OR[8];
+            OR[8] = OR[2];
+            OR[2] = buffer_corner;
+
+            buffer_corner = GR[2];
+            GR[2] = WH[2];
+            WH[2] = BL[6];
+            BL[6] = YE[2];
+            YE[2] = buffer_corner;
+
+            buffer_corner = GR[8];
+            GR[8] = WH[8];
+            WH[8] = BL[0];
+            BL[0] = YE[8];
+            YE[8] = buffer_corner;
+
+            // Movimiento de aristas
+            buffer_edge = OR[1];
+            OR[1] = OR[3];
+            OR[3] = OR[7];
+            OR[7] = OR[5];
+            OR[5] = buffer_edge;
+
+            buffer_edge = GR[5];
+            GR[5] = WH[5];
+            WH[5] = BL[3];
+            BL[3] = YE[5];
+            YE[5] = buffer_edge;
+
         },
         B: ()=>{
-
+            
         },
         F: ()=>{
 
@@ -344,10 +418,14 @@ let Cube = {
             Cube.move.L();
         },
         Dp: ()=>{
-
+            Cube.move.D();
+            Cube.move.D();
+            Cube.move.D();
         },
         Rp: ()=>{
-
+            Cube.move.R();
+            Cube.move.R();
+            Cube.move.R();
         },
         Bp: ()=>{
 
@@ -373,10 +451,12 @@ let Cube = {
             Cube.move.L();
         },
         D2: ()=>{
-
+            Cube.move.D();
+            Cube.move.D();
         },
         R2: ()=>{
-
+            Cube.move.R();
+            Cube.move.R();
         },
         B2: ()=>{
 
@@ -399,6 +479,6 @@ let Cube = {
 
 
 // codigo de prueba:
-Cube.move.L();
+Cube.move.R();
 Cube.setPositions();
 console.log(Cube.positions);
