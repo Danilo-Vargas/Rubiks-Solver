@@ -683,6 +683,6 @@ let Cube = {
 
 
 // codigo de prueba:
-Cube.move.algorithm('U L D R F B E M S U2 L2 D2 R2 F2 B2 E2 M2 S2 Up Lp Dp Rp Fp Bp Ep Mp Sp');
+Cube.move.algorithm('U');
 Cube.setPositions();
 console.log(Cube.positions);
