@@ -1,6 +1,7 @@
 
 
-      // He creado este código para resolver el cubo de Rubik´s 3x3, ten en cuenta que lo estoy creando completamente
+ "use strict"
+ // He creado este código para resolver el cubo de Rubik´s 3x3, ten en cuenta que lo estoy creando completamente
      // desde cero, usando mi propia lógica de programación y usando los algoritmos que para mí han sido los más
     // sencillos de programar, por lo tanto no es el algoritmo más eficiente para la resolución, pero es funcional.
 
@@ -150,8 +151,19 @@
     //             XX = color de la cara              ║ WH6 | WH7 | WH8 ║
     //             N = índice dentro de la matriz     ╚═════╩═════╩═════╝
 
-let Cube = {
-    state: {
+
+class Cube_3x3 {
+    
+    colors = {
+        YE: '',
+        WH: '',
+        GR: '',
+        BL: '',
+        OR: '',
+        RE: ''
+    }
+
+    state = {
         YE: [
             'YE','YE','YE',
             'YE','YE','YE',
@@ -182,8 +194,9 @@ let Cube = {
             'OR','OR','OR',
             'OR','OR','OR'
         ]
-    },
-    status: {
+    };
+
+    status = {
         edges_solved: 0,
         corners_solved: 0,
         centers_solved: 0,
@@ -287,8 +300,9 @@ let Cube = {
             if( _CW ) Cube.status.centers.CW = true;
             
         }
-    },
-    positions:{
+    };
+
+    positions = {
         buffer: [], // Esquinas
         aip: [],
         bqj: [],
@@ -315,8 +329,9 @@ let Cube = {
         CO: '',
         CB: '',
         CW: ''
-    },
-    finalPositions:{
+    };
+
+    finalPositions = {
         buffer: [ 'YE', 'BL', 'RE' ], // Esquinas
         aip: [ 'YE', 'GR', 'OR' ],   
         bqj: [ 'YE', 'OR', 'BL' ],   
@@ -343,8 +358,9 @@ let Cube = {
         CO: 'OR',
         CB: 'BL',
         CW: 'WH'
-    },
-    setPositions: ()=>{
+    };
+
+    setPositions = () => {
 
         let { YE, WH, GR, BL, RE, OR } = Cube.state;
         
@@ -375,8 +391,9 @@ let Cube = {
         Cube.positions.CB     = BL[4];
         Cube.positions.CW     = WH[4];
 
-    },
-    move: {
+    };
+
+    move = {
         U: ()=>{
 
             let { YE, GR, RE, BL, OR } = Cube.state;
@@ -823,22 +840,23 @@ let Cube = {
 
         }
         
-    },
-    solve: {
+    };
+
+    solve = {
         blind: ()=>{
             
         }
-    },
-    algorithms: {
+    };
+
+    algorithms = {
         blind: {
 
         }
-    }
+    };
+
 };
 
-// codigo de prueba:
-// Cube.move.algorithm('U');
-Cube.status.updateStatus();
-Cube.setPositions();
-Cube.status.updateStatus();
-console.log(Cube.status);
+const cubo = new Cube_3x3();
+
+console.log(cubo.state);
+
