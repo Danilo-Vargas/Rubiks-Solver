@@ -153,35 +153,140 @@
 let Cube = {
     state: {
         YE: [
-            'YE0','YE1','YE2',
-            'YE3','YE4','YE5',
-            'YE6','YE7','YE8'
+            'YE','YE','YE',
+            'YE','YE','YE',
+            'YE','YE','YE'
         ],
         WH: [
-            'WH0','WH1','WH2',
-            'WH3','WH4','WH5',
-            'WH6','WH7','WH8'
+            'WH','WH','WH',
+            'WH','WH','WH',
+            'WH','WH','WH'
         ],
         GR: [
-            'GR0','GR1','GR2',
-            'GR3','GR4','GR5',
-            'GR6','GR7','GR8'
+            'GR','GR','GR',
+            'GR','GR','GR',
+            'GR','GR','GR'
         ],
         BL: [
-            'BL0','BL1','BL2',
-            'BL3','BL4','BL5',
-            'BL6','BL7','BL8'
+            'BL','BL','BL',
+            'BL','BL','BL',
+            'BL','BL','BL'
         ],
         RE: [
-            'RE0','RE1','RE2',
-            'RE3','RE4','RE5',
-            'RE6','RE7','RE8'
+            'RE','RE','RE',
+            'RE','RE','RE',
+            'RE','RE','RE'
         ],
         OR: [
-            'OR0','OR1','OR2',
-            'OR3','OR4','OR5',
-            'OR6','OR7','OR8'
+            'OR','OR','OR',
+            'OR','OR','OR',
+            'OR','OR','OR'
         ]
+    },
+    status: {
+        edges_solved: 0,
+        corners_solved: 0,
+        centers_solved: 0,
+        isSolved: false,
+        edges: {
+            BUFFER: false, // Aristas
+            AB: false,
+            CD: false,
+            EF: false,
+            GH: false,
+            IJ: false,
+            KL: false,
+            MN: false,
+            OP: false,
+            QR: false,
+            ST: false,
+            UV: false
+        },
+        corners: {
+            buffer: false, // Esquinas
+            aip: false,
+            bqj: false,
+            coh: false,
+            dsk: false,
+            elt: false,
+            fum: false,
+            gnr: false
+        },
+        centers: {
+            CY: false, // Centros
+            CG: false,
+            CR: false,
+            CO: false,
+            CB: false,
+            CW: false
+        },
+        updateStatus: ()=>{
+
+            // Validaciónes
+
+            const _BUFFER = Cube.positions.BUFFER[0] === Cube.finalPositions.BUFFER[0] && Cube.positions.BUFFER[1] === Cube.finalPositions.BUFFER[1];
+            const _AB     = Cube.positions.AB[0] === Cube.finalPositions.AB[0] && Cube.positions.AB[1] === Cube.finalPositions.AB[1];
+            const _CD     = Cube.positions.CD[0] === Cube.finalPositions.CD[0] && Cube.positions.CD[1] === Cube.finalPositions.CD[1];
+            const _EF     = Cube.positions.EF[0] === Cube.finalPositions.EF[0] && Cube.positions.EF[1] === Cube.finalPositions.EF[1];
+            const _GH     = Cube.positions.GH[0] === Cube.finalPositions.GH[0] && Cube.positions.GH[1] === Cube.finalPositions.GH[1];
+            const _IJ     = Cube.positions.IJ[0] === Cube.finalPositions.IJ[0] && Cube.positions.IJ[1] === Cube.finalPositions.IJ[1];
+            const _KL     = Cube.positions.KL[0] === Cube.finalPositions.KL[0] && Cube.positions.KL[1] === Cube.finalPositions.KL[1];
+            const _MN     = Cube.positions.MN[0] === Cube.finalPositions.MN[0] && Cube.positions.MN[1] === Cube.finalPositions.MN[1];
+            const _OP     = Cube.positions.OP[0] === Cube.finalPositions.OP[0] && Cube.positions.OP[1] === Cube.finalPositions.OP[1];
+            const _QR     = Cube.positions.QR[0] === Cube.finalPositions.QR[0] && Cube.positions.QR[1] === Cube.finalPositions.QR[1];
+            const _ST     = Cube.positions.ST[0] === Cube.finalPositions.ST[0] && Cube.positions.ST[1] === Cube.finalPositions.ST[1];
+            const _UV     = Cube.positions.UV[0] === Cube.finalPositions.UV[0] && Cube.positions.UV[1] === Cube.finalPositions.UV[1];
+
+            const _buffer = Cube.positions.buffer[0] === Cube.finalPositions.buffer[0] && Cube.positions.buffer[1] === Cube.finalPositions.buffer[1] && Cube.positions.buffer[2] === Cube.finalPositions.buffer[2];
+            const _aip    = Cube.positions.aip[0] === Cube.finalPositions.aip[0] && Cube.positions.aip[1] === Cube.finalPositions.aip[1] && Cube.positions.aip[2] === Cube.finalPositions.aip[2];
+            const _bqj    = Cube.positions.bqj[0] === Cube.finalPositions.bqj[0] && Cube.positions.bqj[1] === Cube.finalPositions.bqj[1] && Cube.positions.bqj[2] === Cube.finalPositions.bqj[2];
+            const _coh    = Cube.positions.coh[0] === Cube.finalPositions.coh[0] && Cube.positions.coh[1] === Cube.finalPositions.coh[1] && Cube.positions.coh[2] === Cube.finalPositions.coh[2];
+            const _dsk    = Cube.positions.dsk[0] === Cube.finalPositions.dsk[0] && Cube.positions.dsk[1] === Cube.finalPositions.dsk[1] && Cube.positions.dsk[2] === Cube.finalPositions.dsk[2];
+            const _elt    = Cube.positions.elt[0] === Cube.finalPositions.elt[0] && Cube.positions.elt[1] === Cube.finalPositions.elt[1] && Cube.positions.elt[2] === Cube.finalPositions.elt[2];
+            const _fum    = Cube.positions.fum[0] === Cube.finalPositions.fum[0] && Cube.positions.fum[1] === Cube.finalPositions.fum[1] && Cube.positions.fum[2] === Cube.finalPositions.fum[2];
+            const _gnr    = Cube.positions.gnr[0] === Cube.finalPositions.gnr[0] && Cube.positions.gnr[1] === Cube.finalPositions.gnr[1] && Cube.positions.gnr[2] === Cube.finalPositions.gnr[2];
+
+            const _CY = Cube.positions.CY === Cube.finalPositions.CY;
+            const _CG = Cube.positions.CG === Cube.finalPositions.CG;
+            const _CR = Cube.positions.CR === Cube.finalPositions.CR;
+            const _CO = Cube.positions.CO === Cube.finalPositions.CO;
+            const _CB = Cube.positions.CB === Cube.finalPositions.CB;
+            const _CW = Cube.positions.CW === Cube.finalPositions.CW;
+
+            // Actualizar el status
+
+            if( _BUFFER && _AB && _CD && _EF && _GH && _IJ && _KL && _MN && _OP && _QR && _ST && _UV && _buffer && _aip && _bqj && _coh && _dsk && _elt && _fum && _gnr ) Cube.status.isSolved = true;
+            
+            if( _BUFFER ) Cube.status.edges.BUFFER = true;
+            if( _AB ) Cube.status.edges.AB = true;
+            if( _CD ) Cube.status.edges.CD = true;
+            if( _EF ) Cube.status.edges.EF = true;
+            if( _GH ) Cube.status.edges.GH = true;
+            if( _IJ ) Cube.status.edges.IJ = true;
+            if( _KL ) Cube.status.edges.KL = true;
+            if( _MN ) Cube.status.edges.MN = true;
+            if( _OP ) Cube.status.edges.OP = true;
+            if( _QR ) Cube.status.edges.QR = true;
+            if( _ST ) Cube.status.edges.ST = true;
+            if( _UV ) Cube.status.edges.UV = true;
+
+            if( _buffer ) Cube.status.corners.buffer = true;
+            if( _aip ) Cube.status.corners.aip = true;
+            if( _bqj ) Cube.status.corners.bqj = true;
+            if( _coh ) Cube.status.corners.coh = true;
+            if( _dsk ) Cube.status.corners.dsk = true;
+            if( _elt ) Cube.status.corners.elt = true;
+            if( _fum ) Cube.status.corners.fum = true;
+            if( _gnr ) Cube.status.corners.gnr = true;
+
+            if( _CY ) Cube.status.centers.CY = true;
+            if( _CG ) Cube.status.centers.CG = true;
+            if( _CR ) Cube.status.centers.CR = true;
+            if( _CO ) Cube.status.centers.CO = true;
+            if( _CB ) Cube.status.centers.CB = true;
+            if( _CW ) Cube.status.centers.CW = true;
+            
+        }
     },
     positions:{
         buffer: [], // Esquinas
@@ -210,6 +315,34 @@ let Cube = {
         CO: '',
         CB: '',
         CW: ''
+    },
+    finalPositions:{
+        buffer: [ 'YE', 'BL', 'RE' ], // Esquinas
+        aip: [ 'YE', 'GR', 'OR' ],   
+        bqj: [ 'YE', 'OR', 'BL' ],   
+        coh: [ 'YE', 'RE', 'GR' ],   
+        dsk: [ 'WH', 'RE', 'GR' ],   
+        elt: [ 'WH', 'GR', 'OR' ],   
+        fum: [ 'WH', 'OR', 'BL' ],
+        gnr: [ 'WH', 'BL', 'RE' ],
+        BUFFER: [ 'YE', 'OR' ], // Aristas
+        AB: [ 'YE', 'RE' ],
+        CD: [ 'YE', 'GR' ],
+        EF: [ 'YE', 'BL' ],
+        GH: [ 'RE', 'GR' ],
+        IJ: [ 'GR', 'OR' ],
+        KL: [ 'OR', 'BL' ],
+        MN: [ 'BL', 'RE' ],
+        OP: [ 'RE', 'WH' ],
+        QR: [ 'GR', 'WH' ],
+        ST: [ 'OR', 'WH' ],
+        UV: [ 'BL', 'WH' ],
+        CY: 'YE', // Centros
+        CG: 'GR',
+        CR: 'RE',
+        CO: 'OR',
+        CB: 'BL',
+        CW: 'WH'
     },
     setPositions: ()=>{
 
@@ -690,11 +823,22 @@ let Cube = {
 
         }
         
+    },
+    solve: {
+        blind: ()=>{
+            
+        }
+    },
+    algorithms: {
+        blind: {
+
+        }
     }
 };
 
-
 // codigo de prueba:
-Cube.move.algorithm('U');
+// Cube.move.algorithm('U');
+Cube.status.updateStatus();
 Cube.setPositions();
-console.log(Cube.positions);
+Cube.status.updateStatus();
+console.log(Cube.status);
