@@ -203,7 +203,13 @@ let Cube = {
         OP: [],
         QR: [],
         ST: [],
-        UV: []
+        UV: [],
+        CY: '', // Centros
+        CG: '',
+        CR: '',
+        CO: '',
+        CB: '',
+        CW: ''
     },
     setPositions: ()=>{
 
@@ -229,6 +235,12 @@ let Cube = {
         Cube.positions.QR     = [GR[7],WH[1]];
         Cube.positions.ST     = [OR[7],WH[5]];
         Cube.positions.UV     = [BL[7],WH[7]];
+        Cube.positions.CY     = YE[4];
+        Cube.positions.CG     = GR[4];
+        Cube.positions.CR     = RE[4];
+        Cube.positions.CO     = OR[4];
+        Cube.positions.CB     = BL[4];
+        Cube.positions.CW     = WH[4];
 
     },
     move: {
