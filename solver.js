@@ -320,7 +320,7 @@ let Cube = {
             let buffer_edge;
 
             // Movimiento de esquinas
-            buffer_corner = BL[0];
+            buffer_corner = WH[0];
             WH[0] = WH[6];
             WH[6] = WH[8];
             WH[8] = WH[2];
@@ -650,9 +650,9 @@ let Cube = {
                     case 'L':  Cube.move.L();  break;
                     case 'Lp': Cube.move.Lp(); break;
                     case 'L2': Cube.move.L2(); break;
-                    case 'B':  Cube.move.B();  break;
-                    case 'Bp': Cube.move.Bp(); break;
-                    case 'B2': Cube.move.B2(); break;
+                    case 'D':  Cube.move.D();  break;
+                    case 'Dp': Cube.move.Dp(); break;
+                    case 'D2': Cube.move.D2(); break;
                     case 'R':  Cube.move.R();  break;
                     case 'Rp': Cube.move.Rp(); break;
                     case 'R2': Cube.move.R2(); break;
