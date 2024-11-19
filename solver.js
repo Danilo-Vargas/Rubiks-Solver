@@ -237,67 +237,67 @@ class Cube_3x3 {
 
             // Validaciónes
 
-            const _BUFFER = Cube.positions.BUFFER[0] === Cube.finalPositions.BUFFER[0] && Cube.positions.BUFFER[1] === Cube.finalPositions.BUFFER[1];
-            const _AB     = Cube.positions.AB[0] === Cube.finalPositions.AB[0] && Cube.positions.AB[1] === Cube.finalPositions.AB[1];
-            const _CD     = Cube.positions.CD[0] === Cube.finalPositions.CD[0] && Cube.positions.CD[1] === Cube.finalPositions.CD[1];
-            const _EF     = Cube.positions.EF[0] === Cube.finalPositions.EF[0] && Cube.positions.EF[1] === Cube.finalPositions.EF[1];
-            const _GH     = Cube.positions.GH[0] === Cube.finalPositions.GH[0] && Cube.positions.GH[1] === Cube.finalPositions.GH[1];
-            const _IJ     = Cube.positions.IJ[0] === Cube.finalPositions.IJ[0] && Cube.positions.IJ[1] === Cube.finalPositions.IJ[1];
-            const _KL     = Cube.positions.KL[0] === Cube.finalPositions.KL[0] && Cube.positions.KL[1] === Cube.finalPositions.KL[1];
-            const _MN     = Cube.positions.MN[0] === Cube.finalPositions.MN[0] && Cube.positions.MN[1] === Cube.finalPositions.MN[1];
-            const _OP     = Cube.positions.OP[0] === Cube.finalPositions.OP[0] && Cube.positions.OP[1] === Cube.finalPositions.OP[1];
-            const _QR     = Cube.positions.QR[0] === Cube.finalPositions.QR[0] && Cube.positions.QR[1] === Cube.finalPositions.QR[1];
-            const _ST     = Cube.positions.ST[0] === Cube.finalPositions.ST[0] && Cube.positions.ST[1] === Cube.finalPositions.ST[1];
-            const _UV     = Cube.positions.UV[0] === Cube.finalPositions.UV[0] && Cube.positions.UV[1] === Cube.finalPositions.UV[1];
+            const _BUFFER = this.positions.BUFFER[0] === this.finalPositions.BUFFER[0] && this.positions.BUFFER[1] === this.finalPositions.BUFFER[1];
+            const _AB     = this.positions.AB[0] === this.finalPositions.AB[0] && this.positions.AB[1] === this.finalPositions.AB[1];
+            const _CD     = this.positions.CD[0] === this.finalPositions.CD[0] && this.positions.CD[1] === this.finalPositions.CD[1];
+            const _EF     = this.positions.EF[0] === this.finalPositions.EF[0] && this.positions.EF[1] === this.finalPositions.EF[1];
+            const _GH     = this.positions.GH[0] === this.finalPositions.GH[0] && this.positions.GH[1] === this.finalPositions.GH[1];
+            const _IJ     = this.positions.IJ[0] === this.finalPositions.IJ[0] && this.positions.IJ[1] === this.finalPositions.IJ[1];
+            const _KL     = this.positions.KL[0] === this.finalPositions.KL[0] && this.positions.KL[1] === this.finalPositions.KL[1];
+            const _MN     = this.positions.MN[0] === this.finalPositions.MN[0] && this.positions.MN[1] === this.finalPositions.MN[1];
+            const _OP     = this.positions.OP[0] === this.finalPositions.OP[0] && this.positions.OP[1] === this.finalPositions.OP[1];
+            const _QR     = this.positions.QR[0] === this.finalPositions.QR[0] && this.positions.QR[1] === this.finalPositions.QR[1];
+            const _ST     = this.positions.ST[0] === this.finalPositions.ST[0] && this.positions.ST[1] === this.finalPositions.ST[1];
+            const _UV     = this.positions.UV[0] === this.finalPositions.UV[0] && this.positions.UV[1] === this.finalPositions.UV[1];
 
-            const _buffer = Cube.positions.buffer[0] === Cube.finalPositions.buffer[0] && Cube.positions.buffer[1] === Cube.finalPositions.buffer[1] && Cube.positions.buffer[2] === Cube.finalPositions.buffer[2];
-            const _aip    = Cube.positions.aip[0] === Cube.finalPositions.aip[0] && Cube.positions.aip[1] === Cube.finalPositions.aip[1] && Cube.positions.aip[2] === Cube.finalPositions.aip[2];
-            const _bqj    = Cube.positions.bqj[0] === Cube.finalPositions.bqj[0] && Cube.positions.bqj[1] === Cube.finalPositions.bqj[1] && Cube.positions.bqj[2] === Cube.finalPositions.bqj[2];
-            const _coh    = Cube.positions.coh[0] === Cube.finalPositions.coh[0] && Cube.positions.coh[1] === Cube.finalPositions.coh[1] && Cube.positions.coh[2] === Cube.finalPositions.coh[2];
-            const _dsk    = Cube.positions.dsk[0] === Cube.finalPositions.dsk[0] && Cube.positions.dsk[1] === Cube.finalPositions.dsk[1] && Cube.positions.dsk[2] === Cube.finalPositions.dsk[2];
-            const _elt    = Cube.positions.elt[0] === Cube.finalPositions.elt[0] && Cube.positions.elt[1] === Cube.finalPositions.elt[1] && Cube.positions.elt[2] === Cube.finalPositions.elt[2];
-            const _fum    = Cube.positions.fum[0] === Cube.finalPositions.fum[0] && Cube.positions.fum[1] === Cube.finalPositions.fum[1] && Cube.positions.fum[2] === Cube.finalPositions.fum[2];
-            const _gnr    = Cube.positions.gnr[0] === Cube.finalPositions.gnr[0] && Cube.positions.gnr[1] === Cube.finalPositions.gnr[1] && Cube.positions.gnr[2] === Cube.finalPositions.gnr[2];
+            const _buffer = this.positions.buffer[0] === this.finalPositions.buffer[0] && this.positions.buffer[1] === this.finalPositions.buffer[1] && this.positions.buffer[2] === this.finalPositions.buffer[2];
+            const _aip    = this.positions.aip[0] === this.finalPositions.aip[0] && this.positions.aip[1] === this.finalPositions.aip[1] && this.positions.aip[2] === this.finalPositions.aip[2];
+            const _bqj    = this.positions.bqj[0] === this.finalPositions.bqj[0] && this.positions.bqj[1] === this.finalPositions.bqj[1] && this.positions.bqj[2] === this.finalPositions.bqj[2];
+            const _coh    = this.positions.coh[0] === this.finalPositions.coh[0] && this.positions.coh[1] === this.finalPositions.coh[1] && this.positions.coh[2] === this.finalPositions.coh[2];
+            const _dsk    = this.positions.dsk[0] === this.finalPositions.dsk[0] && this.positions.dsk[1] === this.finalPositions.dsk[1] && this.positions.dsk[2] === this.finalPositions.dsk[2];
+            const _elt    = this.positions.elt[0] === this.finalPositions.elt[0] && this.positions.elt[1] === this.finalPositions.elt[1] && this.positions.elt[2] === this.finalPositions.elt[2];
+            const _fum    = this.positions.fum[0] === this.finalPositions.fum[0] && this.positions.fum[1] === this.finalPositions.fum[1] && this.positions.fum[2] === this.finalPositions.fum[2];
+            const _gnr    = this.positions.gnr[0] === this.finalPositions.gnr[0] && this.positions.gnr[1] === this.finalPositions.gnr[1] && this.positions.gnr[2] === this.finalPositions.gnr[2];
 
-            const _CY = Cube.positions.CY === Cube.finalPositions.CY;
-            const _CG = Cube.positions.CG === Cube.finalPositions.CG;
-            const _CR = Cube.positions.CR === Cube.finalPositions.CR;
-            const _CO = Cube.positions.CO === Cube.finalPositions.CO;
-            const _CB = Cube.positions.CB === Cube.finalPositions.CB;
-            const _CW = Cube.positions.CW === Cube.finalPositions.CW;
+            const _CY = this.positions.CY === this.finalPositions.CY;
+            const _CG = this.positions.CG === this.finalPositions.CG;
+            const _CR = this.positions.CR === this.finalPositions.CR;
+            const _CO = this.positions.CO === this.finalPositions.CO;
+            const _CB = this.positions.CB === this.finalPositions.CB;
+            const _CW = this.positions.CW === this.finalPositions.CW;
 
             // Actualizar el status
 
             if( _BUFFER && _AB && _CD && _EF && _GH && _IJ && _KL && _MN && _OP && _QR && _ST && _UV && _buffer && _aip && _bqj && _coh && _dsk && _elt && _fum && _gnr ) Cube.status.isSolved = true;
             
-            if( _BUFFER ) Cube.status.edges.BUFFER = true;
-            if( _AB ) Cube.status.edges.AB = true;
-            if( _CD ) Cube.status.edges.CD = true;
-            if( _EF ) Cube.status.edges.EF = true;
-            if( _GH ) Cube.status.edges.GH = true;
-            if( _IJ ) Cube.status.edges.IJ = true;
-            if( _KL ) Cube.status.edges.KL = true;
-            if( _MN ) Cube.status.edges.MN = true;
-            if( _OP ) Cube.status.edges.OP = true;
-            if( _QR ) Cube.status.edges.QR = true;
-            if( _ST ) Cube.status.edges.ST = true;
-            if( _UV ) Cube.status.edges.UV = true;
+            if( _BUFFER ) this.status.edges.BUFFER = true;
+            if( _AB ) this.status.edges.AB = true;
+            if( _CD ) this.status.edges.CD = true;
+            if( _EF ) this.status.edges.EF = true;
+            if( _GH ) this.status.edges.GH = true;
+            if( _IJ ) this.status.edges.IJ = true;
+            if( _KL ) this.status.edges.KL = true;
+            if( _MN ) this.status.edges.MN = true;
+            if( _OP ) this.status.edges.OP = true;
+            if( _QR ) this.status.edges.QR = true;
+            if( _ST ) this.status.edges.ST = true;
+            if( _UV ) this.status.edges.UV = true;
 
-            if( _buffer ) Cube.status.corners.buffer = true;
-            if( _aip ) Cube.status.corners.aip = true;
-            if( _bqj ) Cube.status.corners.bqj = true;
-            if( _coh ) Cube.status.corners.coh = true;
-            if( _dsk ) Cube.status.corners.dsk = true;
-            if( _elt ) Cube.status.corners.elt = true;
-            if( _fum ) Cube.status.corners.fum = true;
-            if( _gnr ) Cube.status.corners.gnr = true;
+            if( _buffer ) this.status.corners.buffer = true;
+            if( _aip ) this.status.corners.aip = true;
+            if( _bqj ) this.status.corners.bqj = true;
+            if( _coh ) this.status.corners.coh = true;
+            if( _dsk ) this.status.corners.dsk = true;
+            if( _elt ) this.status.corners.elt = true;
+            if( _fum ) this.status.corners.fum = true;
+            if( _gnr ) this.status.corners.gnr = true;
 
-            if( _CY ) Cube.status.centers.CY = true;
-            if( _CG ) Cube.status.centers.CG = true;
-            if( _CR ) Cube.status.centers.CR = true;
-            if( _CO ) Cube.status.centers.CO = true;
-            if( _CB ) Cube.status.centers.CB = true;
-            if( _CW ) Cube.status.centers.CW = true;
+            if( _CY ) this.status.centers.CY = true;
+            if( _CG ) this.status.centers.CG = true;
+            if( _CR ) this.status.centers.CR = true;
+            if( _CO ) this.status.centers.CO = true;
+            if( _CB ) this.status.centers.CB = true;
+            if( _CW ) this.status.centers.CW = true;
             
         }
     };
@@ -362,41 +362,41 @@ class Cube_3x3 {
 
     setPositions = () => {
 
-        let { YE, WH, GR, BL, RE, OR } = Cube.state;
+        let { YE, WH, GR, BL, RE, OR } = this.state;
         
-        Cube.positions.buffer = [YE[0],BL[2],RE[0]];
-        Cube.positions.aip    = [YE[8],GR[2],OR[0]];
-        Cube.positions.bqj    = [YE[2],OR[2],BL[0]];
-        Cube.positions.coh    = [YE[6],RE[2],GR[0]];
-        Cube.positions.dsk    = [WH[0],RE[8],GR[6]];
-        Cube.positions.elt    = [WH[2],GR[8],OR[6]];
-        Cube.positions.fum    = [WH[8],OR[8],BL[6]];
-        Cube.positions.gnr    = [WH[6],BL[8],RE[6]];
-        Cube.positions.BUFFER = [YE[5],OR[1]];
-        Cube.positions.AB     = [YE[3],RE[1]];
-        Cube.positions.CD     = [YE[7],GR[1]];
-        Cube.positions.EF     = [YE[1],BL[1]];
-        Cube.positions.GH     = [RE[5],GR[3]];
-        Cube.positions.IJ     = [GR[5],OR[3]];
-        Cube.positions.KL     = [OR[5],BL[3]];
-        Cube.positions.MN     = [BL[5],RE[3]];
-        Cube.positions.OP     = [RE[7],WH[3]];
-        Cube.positions.QR     = [GR[7],WH[1]];
-        Cube.positions.ST     = [OR[7],WH[5]];
-        Cube.positions.UV     = [BL[7],WH[7]];
-        Cube.positions.CY     = YE[4];
-        Cube.positions.CG     = GR[4];
-        Cube.positions.CR     = RE[4];
-        Cube.positions.CO     = OR[4];
-        Cube.positions.CB     = BL[4];
-        Cube.positions.CW     = WH[4];
+        this.positions.buffer = [YE[0],BL[2],RE[0]];
+        this.positions.aip    = [YE[8],GR[2],OR[0]];
+        this.positions.bqj    = [YE[2],OR[2],BL[0]];
+        this.positions.coh    = [YE[6],RE[2],GR[0]];
+        this.positions.dsk    = [WH[0],RE[8],GR[6]];
+        this.positions.elt    = [WH[2],GR[8],OR[6]];
+        this.positions.fum    = [WH[8],OR[8],BL[6]];
+        this.positions.gnr    = [WH[6],BL[8],RE[6]];
+        this.positions.BUFFER = [YE[5],OR[1]];
+        this.positions.AB     = [YE[3],RE[1]];
+        this.positions.CD     = [YE[7],GR[1]];
+        this.positions.EF     = [YE[1],BL[1]];
+        this.positions.GH     = [RE[5],GR[3]];
+        this.positions.IJ     = [GR[5],OR[3]];
+        this.positions.KL     = [OR[5],BL[3]];
+        this.positions.MN     = [BL[5],RE[3]];
+        this.positions.OP     = [RE[7],WH[3]];
+        this.positions.QR     = [GR[7],WH[1]];
+        this.positions.ST     = [OR[7],WH[5]];
+        this.positions.UV     = [BL[7],WH[7]];
+        this.positions.CY     = YE[4];
+        this.positions.CG     = GR[4];
+        this.positions.CR     = RE[4];
+        this.positions.CO     = OR[4];
+        this.positions.CB     = BL[4];
+        this.positions.CW     = WH[4];
 
     };
 
     move = {
         U: ()=>{
 
-            let { YE, GR, RE, BL, OR } = Cube.state;
+            let { YE, GR, RE, BL, OR } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -436,7 +436,7 @@ class Cube_3x3 {
         },
         L: ()=>{
 
-            let { RE, YE, GR, WH, BL } = Cube.state;
+            let { RE, YE, GR, WH, BL } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -476,7 +476,7 @@ class Cube_3x3 {
         },
         D: ()=>{
 
-            let { WH, GR, OR, BL, RE } = Cube.state;
+            let { WH, GR, OR, BL, RE } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -516,7 +516,7 @@ class Cube_3x3 {
         },
         R: ()=>{
 
-            let { OR, GR, WH, BL, YE } = Cube.state;
+            let { OR, GR, WH, BL, YE } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -556,7 +556,7 @@ class Cube_3x3 {
         },
         B: ()=>{
             
-            let { BL, YE, OR, WH, RE } = Cube.state;
+            let { BL, YE, OR, WH, RE } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -596,7 +596,7 @@ class Cube_3x3 {
         },
         F: ()=>{
 
-            let { GR, YE, OR, WH, RE } = Cube.state;
+            let { GR, YE, OR, WH, RE } = this.state;
 
             let buffer_corner;
             let buffer_edge;
@@ -636,7 +636,7 @@ class Cube_3x3 {
         },
         E: ()=>{
 
-            let { GR, OR, BL, RE } = Cube.state;
+            let { GR, OR, BL, RE } = this.state;
 
             let buffer_edge;
             let buffer_center;
@@ -664,7 +664,7 @@ class Cube_3x3 {
         },
         M: ()=>{
 
-            let { YE, GR, WH, BL } = Cube.state;
+            let { YE, GR, WH, BL } = this.state;
 
             let buffer_edge;
             let buffer_center;
@@ -692,7 +692,7 @@ class Cube_3x3 {
         },
         S: ()=>{
 
-            let { YE, OR, WH, RE } = Cube.state;
+            let { YE, OR, WH, RE } = this.state;
 
             let buffer_edge;
             let buffer_center;
@@ -719,85 +719,85 @@ class Cube_3x3 {
 
         },
         Up: ()=>{
-            Cube.move.U();
-            Cube.move.U();
-            Cube.move.U();
+            this.move.U();
+            this.move.U();
+            this.move.U();
         },
         Lp: ()=>{
-            Cube.move.L();
-            Cube.move.L();
-            Cube.move.L();
+            this.move.L();
+            this.move.L();
+            this.move.L();
         },
         Dp: ()=>{
-            Cube.move.D();
-            Cube.move.D();
-            Cube.move.D();
+            this.move.D();
+            this.move.D();
+            this.move.D();
         },
         Rp: ()=>{
-            Cube.move.R();
-            Cube.move.R();
-            Cube.move.R();
+            this.move.R();
+            this.move.R();
+            this.move.R();
         },
         Bp: ()=>{
-            Cube.move.B();
-            Cube.move.B();
-            Cube.move.B();
+            this.move.B();
+            this.move.B();
+            this.move.B();
         },
         Fp: ()=>{
-            Cube.move.F();
-            Cube.move.F();
-            Cube.move.F();
+            this.move.F();
+            this.move.F();
+            this.move.F();
         },
         Ep: ()=>{
-            Cube.move.E();
-            Cube.move.E();
-            Cube.move.E();
+            this.move.E();
+            this.move.E();
+            this.move.E();
         },
         Mp: ()=>{
-            Cube.move.M();
-            Cube.move.M();
-            Cube.move.M();
+            this.move.M();
+            this.move.M();
+            this.move.M();
         },
         Sp: ()=>{
-            Cube.move.S();
-            Cube.move.S();
-            Cube.move.S();
+            this.move.S();
+            this.move.S();
+            this.move.S();
         },
         U2: ()=>{
-            Cube.move.U();
-            Cube.move.U();
+            this.move.U();
+            this.move.U();
         },
         L2: ()=>{
-            Cube.move.L();
-            Cube.move.L();
+            this.move.L();
+            this.move.L();
         },
         D2: ()=>{
-            Cube.move.D();
-            Cube.move.D();
+            this.move.D();
+            this.move.D();
         },
         R2: ()=>{
-            Cube.move.R();
-            Cube.move.R();
+            this.move.R();
+            this.move.R();
         },
         B2: ()=>{
-            Cube.move.B();
-            Cube.move.B();
+            this.move.B();
+            this.move.B();
         },
         F2: ()=>{
-            Cube.move.F();
-            Cube.move.F();
+            this.move.F();
+            this.move.F();
         },
         E2: ()=>{
-            Cube.move.E();
-            Cube.move.E();
+            this.move.E();
+            this.move.E();
         },
         M2: ()=>{
-            Cube.move.M();
-            Cube.move.M();
+            this.move.M();
+            this.move.M();
         },
         S2: ()=>{
-            Cube.move.S();
-            Cube.move.S();
+            this.move.S();
+            this.move.S();
         },
         algorithm: (algorithm)=>{
 
@@ -806,33 +806,33 @@ class Cube_3x3 {
             for( let m = 0; m < algMoves.length; m++ ){
                 
                 switch (algMoves[m]) {
-                    case 'U':  Cube.move.U();  break;
-                    case 'Up': Cube.move.Up(); break;
-                    case 'U2': Cube.move.U2(); break;
-                    case 'L':  Cube.move.L();  break;
-                    case 'Lp': Cube.move.Lp(); break;
-                    case 'L2': Cube.move.L2(); break;
-                    case 'D':  Cube.move.D();  break;
-                    case 'Dp': Cube.move.Dp(); break;
-                    case 'D2': Cube.move.D2(); break;
-                    case 'R':  Cube.move.R();  break;
-                    case 'Rp': Cube.move.Rp(); break;
-                    case 'R2': Cube.move.R2(); break;
-                    case 'F':  Cube.move.F();  break;
-                    case 'Fp': Cube.move.Fp(); break;
-                    case 'F2': Cube.move.F2(); break;
-                    case 'B':  Cube.move.B();  break;
-                    case 'Bp': Cube.move.Bp(); break;
-                    case 'B2': Cube.move.B2(); break;
-                    case 'E':  Cube.move.E();  break;
-                    case 'Ep': Cube.move.Ep(); break;
-                    case 'E2': Cube.move.E2(); break;
-                    case 'M':  Cube.move.M();  break;
-                    case 'Mp': Cube.move.Mp(); break;
-                    case 'M2': Cube.move.M2(); break;
-                    case 'S':  Cube.move.S();  break;
-                    case 'Sp': Cube.move.Sp(); break;
-                    case 'S2': Cube.move.S2(); break;
+                    case "U":  this.move.U();  break;
+                    case "U'": this.move.Up(); break;
+                    case "U2": this.move.U2(); break;
+                    case "L":  this.move.L();  break;
+                    case "L'": this.move.Lp(); break;
+                    case "L2": this.move.L2(); break;
+                    case "D":  this.move.D();  break;
+                    case "D'": this.move.Dp(); break;
+                    case "D2": this.move.D2(); break;
+                    case "R":  this.move.R();  break;
+                    case "R'": this.move.Rp(); break;
+                    case "R2": this.move.R2(); break;
+                    case "F":  this.move.F();  break;
+                    case "F'": this.move.Fp(); break;
+                    case "F2": this.move.F2(); break;
+                    case "B":  this.move.B();  break;
+                    case "B'": this.move.Bp(); break;
+                    case "B2": this.move.B2(); break;
+                    case "E":  this.move.E();  break;
+                    case "E'": this.move.Ep(); break;
+                    case "E2": this.move.E2(); break;
+                    case "M":  this.move.M();  break;
+                    case "M'": this.move.Mp(); break;
+                    case "M2": this.move.M2(); break;
+                    case "S":  this.move.S();  break;
+                    case "S'": this.move.Sp(); break;
+                    case "S2": this.move.S2(); break;
                     default: break;
                 }
 
@@ -845,12 +845,67 @@ class Cube_3x3 {
     solve = {
         blind: ()=>{
             
+            
+            
         }
     };
 
     algorithms = {
         blind: {
-
+            corners: {
+                a: "Yp",
+                b: "R D' Ymp D R'",
+                c: "F' D R Yp R' D' F",
+                d: "F' Ymp F",
+                e: "R' D' Ymp D R",
+                f: "R2 Yp R2",
+                g: "D F' Ymp F D'",
+                h: "F' D Ymp D' F",
+                i: "F R Yp R' F'",
+                j: "R' Yp R",
+                k: "D Ymp D'",
+                l: "R Yp R'",
+                m: "D' Ymp D",
+                n: "D2 R Yp R' D2",
+                o: "F Yp F'",
+                p: "R' Ymp R",
+                q: "R2 Ymp R2",
+                r: "D2 Ymp D2",
+                s: "D R Yp R' D'",
+                t: "Ymp",
+                u: "R Ymp R'"
+            },
+            edges: {
+                A: "Tp",
+                B: "L' E L' Tp L E' L",
+                C: "Jbp",
+                D: "M' Jap M",
+                E: "Jap",
+                F: "M Jbp M'",
+                G: "E' L Tp L' E",
+                H: "L' Tp L",
+                I: "E2 L Tp L' E2",
+                J: "E' L' Tp L E",
+                K: "E L Tp L' E'",
+                L: "E2 L' Tp L E2",
+                M: "L Tp L'",
+                N: "E L' Tp L E'",
+                O: "D M' Jbp M D'",
+                P: "L2 Tp L2",
+                Q: "M' Jbp M",
+                R: "D' L2 Tp L2 D",
+                S: "D' M' Jbp M D",
+                T: "D2 L2 Tp L2 D2",
+                U: "M Jap M'",
+                V: "D L2 Tp L2 D'"
+            },
+            perms: {
+                Tp:  "R U R' U' R' F R2 U' R' U' R U R' F'",
+                Jap: "R' U2 R U R' U2 L U' R U L'",
+                Jbp: "R U R' F' R U R' U' R' F R2 U' R' U'",
+                Yp:  "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+                Ymp: "R U' R' U' R U R' F' R U R' U' R' F R",
+            }
         }
     };
 
@@ -858,5 +913,7 @@ class Cube_3x3 {
 
 const cubo = new Cube_3x3();
 
+cubo.move.algorithm('U');
 console.log(cubo.state);
+
 
