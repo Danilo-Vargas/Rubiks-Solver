@@ -19,10 +19,13 @@
 
        // Creaador: Aldo Danilo Vargas Esquivel
       // Inicio del proyecto: 27/10/2024
-     // Fin del proyecto: --/--/----
+     // Fin del proyecto: 19/11/2024 **
     // Repositorio de GitHub: https://github.com/Danilo-Vargas/Rubiks-Solver
    
     // Visíta mi sitio web https://danilovargas.tech para conocer más acerca de mí y los proyectos en los que he trabajado
+
+     // ** Hoy 19 de Noviembre del 2024 he terminado sólo la parte que resuelve el cubo de rubiks 3x3, aún faltan otros cubos
+    // y el robot para que lo resuelva en tiempo real.
 
                   ////////////////////////////////////////////////////////////////////////////////////////////
                  
@@ -921,14 +924,24 @@ class Cube_3x3 {
                 while( !this.status.areCornersSolved ){
 
                     this.setPositions();
-                    this.methodes.blind.solveCorner(this.methodes.blind.get_buffer());
+
+                    let corner_to_solve = this.methodes.blind.get_buffer();
+
+                    if( corner_to_solve === 'buffer' ) corner_to_solve = this.methodes.blind.getWrongCorner();
+
+                    this.methodes.blind.solveCorner(corner_to_solve);
 
                 }
 
                 while( !this.status.areEdgesSolved ){
-                    
+
                     this.setPositions();
-                    this.methodes.blind.solveEdge(this.methodes.blind.get_BUFFER());
+
+                    let edge_to_solve = this.methodes.blind.get_BUFFER();
+
+                    if( edge_to_solve === 'BUFFER' ) edge_to_solve = this.methodes.blind.getWrongEdge();
+
+                    this.methodes.blind.solveEdge(edge_to_solve);
                     
                 }
                 
@@ -1132,6 +1145,36 @@ class Cube_3x3 {
                     
                 }
 
+            },
+            getWrongCorner: () => {
+
+                if( !this.status.corners.aip ) return 'a';
+                if( !this.status.corners.bqj ) return 'b';
+                if( !this.status.corners.coh ) return 'c';
+                if( !this.status.corners.dsk ) return 'd';
+                if( !this.status.corners.elt ) return 'e';
+                if( !this.status.corners.fum ) return 'f';
+                if( !this.status.corners.gnr ) return 'g';
+
+                return 200;
+
+            },
+            getWrongEdge: () => {
+
+                if( !this.status.edges.AB ) return 'A';
+                if( !this.status.edges.CD ) return 'C';
+                if( !this.status.edges.EF ) return 'E';
+                if( !this.status.edges.GH ) return 'G';
+                if( !this.status.edges.IJ ) return 'I';
+                if( !this.status.edges.KL ) return 'K';
+                if( !this.status.edges.MN ) return 'M';
+                if( !this.status.edges.OP ) return 'O';
+                if( !this.status.edges.QR ) return 'Q';
+                if( !this.status.edges.ST ) return 'S';
+                if( !this.status.edges.UV ) return 'U';
+
+                return 200;
+
             }
         }
     }
@@ -1199,13 +1242,12 @@ class Cube_3x3 {
 
 const cubo = new Cube_3x3();
 
-cubo.move.algorithm("U L");
-console.log(cubo.status, cubo.positions.buffer, cubo.positions.BUFFER);
-console.log(cubo.state);
+cubo.move.algorithm("L D R2 F B U2 D L2 U' L' B R U' L' R' D B R2 U L' F B' U2 D R'");
 
 cubo.solve.blind();
+
 console.log(cubo.solution);
-console.log(cubo.state);
+
 
 
 
