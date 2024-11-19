@@ -197,41 +197,44 @@ class Cube_3x3 {
     };
 
     status = {
-        edges_solved: 0,
-        corners_solved: 0,
-        centers_solved: 0,
-        isSolved: false,
+        edges_solved: 12,
+        corners_solved: 8,
+        centers_solved: 6,
+        isSolved: true,
+        areEdgesSolved: true,
+        areCornersSolved: true,
+        areCentersSolved: true,
         edges: {
-            BUFFER: false, // Aristas
-            AB: false,
-            CD: false,
-            EF: false,
-            GH: false,
-            IJ: false,
-            KL: false,
-            MN: false,
-            OP: false,
-            QR: false,
-            ST: false,
-            UV: false
+            BUFFER: true, // Aristas
+            AB: true,
+            CD: true,
+            EF: true,
+            GH: true,
+            IJ: true,
+            KL: true,
+            MN: true,
+            OP: true,
+            QR: true,
+            ST: true,
+            UV: true
         },
         corners: {
-            buffer: false, // Esquinas
-            aip: false,
-            bqj: false,
-            coh: false,
-            dsk: false,
-            elt: false,
-            fum: false,
-            gnr: false
+            buffer: true, // Esquinas
+            aip: true,
+            bqj: true,
+            coh: true,
+            dsk: true,
+            elt: true,
+            fum: true,
+            gnr: true
         },
         centers: {
-            CY: false, // Centros
-            CG: false,
-            CR: false,
-            CO: false,
-            CB: false,
-            CW: false
+            CY: true, // Centros
+            CG: true,
+            CR: true,
+            CO: true,
+            CB: true,
+            CW: true
         },
         updateStatus: ()=>{
 
@@ -266,38 +269,97 @@ class Cube_3x3 {
             const _CB = this.positions.CB === this.finalPositions.CB;
             const _CW = this.positions.CW === this.finalPositions.CW;
 
+            let _edgesSolved = 0;
+            let _cornersSolved = 0;
+            let _centersSolved = 0;
+
             // Actualizar el status
 
-            if( _BUFFER && _AB && _CD && _EF && _GH && _IJ && _KL && _MN && _OP && _QR && _ST && _UV && _buffer && _aip && _bqj && _coh && _dsk && _elt && _fum && _gnr ) Cube.status.isSolved = true;
+            if( _BUFFER && _AB && _CD && _EF && _GH && _IJ && _KL && _MN && _OP && _QR && _ST && _UV ){
+                this.status.areEdgesSolved = true;
+            } else{
+                this.status.areEdgesSolved = false;
+            }
+
+            if( _buffer && _aip && _bqj && _coh && _dsk && _elt && _fum && _gnr ){
+                this.status.areCornersSolved = true;
+            } else{
+                this.status.areCornersSolved = false;
+            }
+
+            if( _CY && _CG && _CR && _CO && _CB && _CW ){
+                this.status.areCentersSolved = true;
+            } else{
+                this.status.areCentersSolved = false;
+            }
             
-            if( _BUFFER ) this.status.edges.BUFFER = true;
-            if( _AB ) this.status.edges.AB = true;
-            if( _CD ) this.status.edges.CD = true;
-            if( _EF ) this.status.edges.EF = true;
-            if( _GH ) this.status.edges.GH = true;
-            if( _IJ ) this.status.edges.IJ = true;
-            if( _KL ) this.status.edges.KL = true;
-            if( _MN ) this.status.edges.MN = true;
-            if( _OP ) this.status.edges.OP = true;
-            if( _QR ) this.status.edges.QR = true;
-            if( _ST ) this.status.edges.ST = true;
-            if( _UV ) this.status.edges.UV = true;
+            if( this.status.areEdgesSolved && this.status.areCornersSolved && this.status.areCentersSolved ) {
+                this.status.isSolved = true;
+            } else{
+                this.status.isSolved = false;
+            }
 
-            if( _buffer ) this.status.corners.buffer = true;
-            if( _aip ) this.status.corners.aip = true;
-            if( _bqj ) this.status.corners.bqj = true;
-            if( _coh ) this.status.corners.coh = true;
-            if( _dsk ) this.status.corners.dsk = true;
-            if( _elt ) this.status.corners.elt = true;
-            if( _fum ) this.status.corners.fum = true;
-            if( _gnr ) this.status.corners.gnr = true;
+            if( _BUFFER ) _edgesSolved++;
+            if( _AB ) _edgesSolved++;
+            if( _CD ) _edgesSolved++;
+            if( _EF ) _edgesSolved++;
+            if( _GH ) _edgesSolved++;
+            if( _IJ ) _edgesSolved++;
+            if( _KL ) _edgesSolved++;
+            if( _MN ) _edgesSolved++;
+            if( _OP ) _edgesSolved++;
+            if( _QR ) _edgesSolved++;
+            if( _ST ) _edgesSolved++;
+            if( _UV ) _edgesSolved++;
 
-            if( _CY ) this.status.centers.CY = true;
-            if( _CG ) this.status.centers.CG = true;
-            if( _CR ) this.status.centers.CR = true;
-            if( _CO ) this.status.centers.CO = true;
-            if( _CB ) this.status.centers.CB = true;
-            if( _CW ) this.status.centers.CW = true;
+            this.status.edges.BUFFER = _BUFFER; 
+            this.status.edges.AB = _AB;
+            this.status.edges.CD = _CD;
+            this.status.edges.EF = _EF;
+            this.status.edges.GH = _GH;
+            this.status.edges.IJ = _IJ;
+            this.status.edges.KL = _KL;
+            this.status.edges.MN = _MN;
+            this.status.edges.OP = _OP;
+            this.status.edges.QR = _QR;
+            this.status.edges.ST = _ST;
+            this.status.edges.UV = _UV;
+
+            if( _buffer ) _cornersSolved++;
+            if( _aip ) _cornersSolved++;
+            if( _bqj ) _cornersSolved++;
+            if( _coh ) _cornersSolved++;
+            if( _dsk ) _cornersSolved++;
+            if( _elt ) _cornersSolved++;
+            if( _fum ) _cornersSolved++;
+            if( _gnr ) _cornersSolved++;
+
+            this.status.corners.buffer = _buffer; 
+            this.status.corners.aip = _aip;
+            this.status.corners.bqj = _bqj;
+            this.status.corners.coh = _coh;
+            this.status.corners.dsk = _dsk;
+            this.status.corners.elt = _elt;
+            this.status.corners.fum = _fum;
+            this.status.corners.gnr = _gnr;
+
+            if( _CY ) _centersSolved++;
+            if( _CG ) _centersSolved++;
+            if( _CR ) _centersSolved++;
+            if( _CO ) _centersSolved++;
+            if( _CB ) _centersSolved++;
+            if( _CW ) _centersSolved++;
+
+            this.status.centers.CY = _CY; 
+            this.status.centers.CG = _CG; 
+            this.status.centers.CR = _CR; 
+            this.status.centers.CO = _CO; 
+            this.status.centers.CB = _CB; 
+            this.status.centers.CW = _CW; 
+
+            this.status.edges_solved   = _edgesSolved;
+            this.status.corners_solved = _cornersSolved;
+            this.status.centers_solved = _centersSolved;
             
         }
     };
@@ -390,6 +452,8 @@ class Cube_3x3 {
         this.positions.CO     = OR[4];
         this.positions.CB     = BL[4];
         this.positions.CW     = WH[4];
+
+        this.status.updateStatus();
 
     };
 
@@ -836,19 +900,241 @@ class Cube_3x3 {
                     default: break;
                 }
 
+                this.setPositions();
+
             }
 
         }
         
     };
 
+    solution = '';
+
     solve = {
         blind: ()=>{
             
-            
-            
+            // Mientras el cubo no esté resuelto, se estará resolviendo
+            while( !this.status.isSolved ){
+
+                // Empezamos resolviendo las esquinas
+
+                while( !this.status.areCornersSolved ){
+
+                    this.setPositions();
+                    this.methodes.blind.solveCorner(this.methodes.blind.get_buffer());
+
+                }
+
+                while( !this.status.areEdgesSolved ){
+                    
+                    this.setPositions();
+                    this.methodes.blind.solveEdge(this.methodes.blind.get_BUFFER());
+                    
+                }
+                
+                break;
+
+            }
+
         }
     };
+
+    methodes = {
+        blind: {
+            get_buffer: () => {
+                
+                const buffer = this.positions.buffer.join('-');
+
+                switch(buffer){
+                    case 'YE-BL-RE':
+                    case 'RE-YE-BL':
+                    case 'BL-RE-YE': return 'buffer';
+
+                    case 'YE-GR-OR': return 'a';
+                    case 'OR-YE-GR': return 'p';
+                    case 'GR-OR-YE': return 'i';
+
+                    case 'YE-OR-BL': return 'b';
+                    case 'BL-YE-OR': return 'j';
+                    case 'OR-BL-YE': return 'q';
+
+                    case 'YE-RE-GR': return 'c';
+                    case 'GR-YE-RE': return 'h';
+                    case 'RE-GR-YE': return 'o';
+
+                    case 'WH-GR-RE': return 'd'
+                    case 'RE-WH-GR': return 's';
+                    case 'GR-RE-WH': return 'k';
+
+                    case 'WH-OR-GR': return 'e'
+                    case 'GR-WH-OR': return 'l';
+                    case 'OR-GR-WH': return 't';
+
+                    case 'WH-BL-OR': return 'f'
+                    case 'OR-WH-BL': return 'u';
+                    case 'BL-OR-WH': return 'm';
+
+                    case 'WH-RE-BL': return 'g';
+                    case 'BL-WH-RE': return 'n';
+                    case 'RE-BL-WH': return 'r';
+
+                    default: return 500;
+                }
+
+            },
+            get_BUFFER: () => {
+
+                const BUFFER = this.positions.BUFFER.join('-');
+
+                switch(BUFFER){
+                    case 'YE-OR': return 'BUFFER';
+                    case 'OR-YE': return 'BUFFER';
+
+                    case 'YE-RE': return 'A';
+                    case 'RE-YE': return 'B';
+
+                    case 'YE-GR': return 'C';
+                    case 'GR-YE': return 'D';
+
+                    case 'YE-BL': return 'E';
+                    case 'BL-YE': return 'F';
+
+                    case 'RE-GR': return 'G';
+                    case 'GR-RE': return 'H';
+
+                    case 'GR-OR': return 'I';
+                    case 'OR-GR': return 'J';
+
+                    case 'OR-BL': return 'K';
+                    case 'BL-OR': return 'L';
+
+                    case 'BL-RE': return 'M';
+                    case 'RE-BL': return 'N';
+
+                    case 'RE-WH': return 'O';
+                    case 'WH-RE': return 'P';
+
+                    case 'GR-WH': return 'Q';
+                    case 'WH-GR': return 'R';
+
+                    case 'OR-WH': return 'S';
+                    case 'WH-OR': return 'T';
+
+                    case 'BL-WH': return 'U';
+                    case 'WH-BL': return 'V';
+
+                    default: return 500;
+                }
+
+            },
+            solveCorner: (corner) => {
+
+                let algorithm = '';
+
+                switch(corner){
+                    case 'a': algorithm = this.algorithms.blind.corners.a; break;
+                    case 'b': algorithm = this.algorithms.blind.corners.b; break;
+                    case 'c': algorithm = this.algorithms.blind.corners.c; break;
+                    case 'd': algorithm = this.algorithms.blind.corners.d; break;
+                    case 'e': algorithm = this.algorithms.blind.corners.e; break;
+                    case 'f': algorithm = this.algorithms.blind.corners.f; break;
+                    case 'g': algorithm = this.algorithms.blind.corners.g; break;
+                    case 'h': algorithm = this.algorithms.blind.corners.h; break;
+                    case 'i': algorithm = this.algorithms.blind.corners.i; break;
+                    case 'j': algorithm = this.algorithms.blind.corners.j; break;
+                    case 'k': algorithm = this.algorithms.blind.corners.k; break;
+                    case 'l': algorithm = this.algorithms.blind.corners.l; break;
+                    case 'm': algorithm = this.algorithms.blind.corners.m; break;
+                    case 'n': algorithm = this.algorithms.blind.corners.n; break;
+                    case 'o': algorithm = this.algorithms.blind.corners.o; break;
+                    case 'p': algorithm = this.algorithms.blind.corners.p; break;
+                    case 'q': algorithm = this.algorithms.blind.corners.q; break;
+                    case 'r': algorithm = this.algorithms.blind.corners.r; break;
+                    case 's': algorithm = this.algorithms.blind.corners.s; break;
+                    case 't': algorithm = this.algorithms.blind.corners.t; break;
+                    case 'u': algorithm = this.algorithms.blind.corners.u; break;
+                }
+
+                algorithm = algorithm.split(' ');
+
+                for( let m = 0; m < algorithm.length; m++ ){
+
+                    if( algorithm[m] === 'Yp' || algorithm[m] === 'Ymp' ){
+                        
+                        let new_algorithm = '';
+
+                        switch(algorithm[m]){
+                            case 'Yp':  new_algorithm = this.algorithms.blind.perms.Yp;  break;
+                            case 'Ymp': new_algorithm = this.algorithms.blind.perms.Ymp; break;
+                        }
+
+                        this.move.algorithm(new_algorithm);
+                        this.solution = this.solution + ' ' + new_algorithm;
+
+                    } else{
+                        this.move.algorithm(algorithm[m]);
+                        this.solution = this.solution + ' ' + algorithm[m];
+                    }
+                    
+                }
+
+            },
+            solveEdge: (edge) => {
+
+                let algorithm = '';
+
+                switch(edge){
+                    case 'A': algorithm = this.algorithms.blind.edges.A; break;
+                    case 'B': algorithm = this.algorithms.blind.edges.B; break;
+                    case 'C': algorithm = this.algorithms.blind.edges.C; break;
+                    case 'D': algorithm = this.algorithms.blind.edges.D; break;
+                    case 'E': algorithm = this.algorithms.blind.edges.E; break;
+                    case 'F': algorithm = this.algorithms.blind.edges.F; break;
+                    case 'G': algorithm = this.algorithms.blind.edges.G; break;
+                    case 'H': algorithm = this.algorithms.blind.edges.H; break;
+                    case 'I': algorithm = this.algorithms.blind.edges.I; break;
+                    case 'J': algorithm = this.algorithms.blind.edges.J; break;
+                    case 'K': algorithm = this.algorithms.blind.edges.K; break;
+                    case 'L': algorithm = this.algorithms.blind.edges.L; break;
+                    case 'M': algorithm = this.algorithms.blind.edges.M; break;
+                    case 'N': algorithm = this.algorithms.blind.edges.N; break;
+                    case 'O': algorithm = this.algorithms.blind.edges.O; break;
+                    case 'P': algorithm = this.algorithms.blind.edges.P; break;
+                    case 'Q': algorithm = this.algorithms.blind.edges.Q; break;
+                    case 'R': algorithm = this.algorithms.blind.edges.R; break;
+                    case 'S': algorithm = this.algorithms.blind.edges.S; break;
+                    case 'T': algorithm = this.algorithms.blind.edges.T; break;
+                    case 'U': algorithm = this.algorithms.blind.edges.U; break;
+                    case 'V': algorithm = this.algorithms.blind.edges.V; break;
+                }
+
+                algorithm = algorithm.split(' ');
+                
+                for( let m = 0; m < algorithm.length; m++ ){
+
+                    if( algorithm[m] === 'Tp' || algorithm[m] === 'Jap' || algorithm[m] === 'Jbp' ){
+                        
+                        let new_algorithm = '';
+
+                        switch(algorithm[m]){
+                            case 'Tp':  new_algorithm = this.algorithms.blind.perms.Tp;  break;
+                            case 'Jap': new_algorithm = this.algorithms.blind.perms.Jap; break;
+                            case 'Jbp': new_algorithm = this.algorithms.blind.perms.Jbp; break;
+                        }
+
+                        this.move.algorithm(new_algorithm);
+                        this.solution = this.solution + ' ' + new_algorithm;
+
+                    } else{
+                        this.move.algorithm(algorithm[m]);
+                        this.solution = this.solution + ' ' + algorithm[m];
+                    }
+                    
+                }
+
+            }
+        }
+    }
 
     algorithms = {
         blind: {
@@ -913,7 +1199,13 @@ class Cube_3x3 {
 
 const cubo = new Cube_3x3();
 
-cubo.move.algorithm('U');
+cubo.move.algorithm("U L");
+console.log(cubo.status, cubo.positions.buffer, cubo.positions.BUFFER);
 console.log(cubo.state);
+
+cubo.solve.blind();
+console.log(cubo.solution);
+console.log(cubo.state);
+
 
 
